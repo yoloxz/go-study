@@ -1,0 +1,3 @@
+2023/08/16 15:43:12 this is a test log entry
+2023/08/16 15:43:12 This is a formatted log message: hello
+[main]2023/08/16 15:43:12 /mnt/d/code/go-study/main.go:24: this is a log message with prefix and flags

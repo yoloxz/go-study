@@ -1,0 +1,80 @@
+info:
+  contact: {}
+paths:
+  /system/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取系统用户列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: 获取系统用户列表
+      tags:
+      - 系统
+  /user/register:
+    post:
+      consumes:
+      - application/json
+      description: 用户注册
+      parameters:
+      - description: 用户名
+        in: body
+        name: name
+        required: true
+        schema:
+          type: string
+      - description: 年龄
+        in: body
+        name: age
+        required: true
+        schema:
+          type: integer
+      - description: 邮箱
+        in: body
+        name: email
+        required: true
+        schema:
+          type: string
+      - description: 密码
+        in: body
+        name: password
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: 用户注册
+      tags:
+      - 用户
+  /user/userInfo:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户信息
+      parameters:
+      - description: 用户名
+        in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: 获取用户信息
+      tags:
+      - 用户
+swagger: "2.0"
