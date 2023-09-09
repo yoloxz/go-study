@@ -24,8 +24,9 @@ type (
 	}
 
 	SQLITE struct {
-		MAX_IDLE_CONNS int `yaml:"max_idle_conns" env:"SQLITE_MAX_IDLE_CONNS" env-default:"10"`
-		MAX_OPEN_CONNS int `yaml:"max_open_conns" env:"SQLITE_MAX_OPEN_CONNS" env-default:"100"`
+		DB_FILE_PATH   string `yaml:"db_file_path" env:"SQLITE_DB_FILE_PATH" env-default:"./test.db"`
+		MAX_IDLE_CONNS int    `yaml:"max_idle_conns" env:"SQLITE_MAX_IDLE_CONNS" env-default:"10"`
+		MAX_OPEN_CONNS int    `yaml:"max_open_conns" env:"SQLITE_MAX_OPEN_CONNS" env-default:"100"`
 	}
 )
 

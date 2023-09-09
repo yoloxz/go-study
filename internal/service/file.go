@@ -113,7 +113,7 @@ func DownloadFile(c *gin.Context) {
 	}
 }
 
-func GetMd5(c *gin.Context) (string, error){
+func GetMd5(c *gin.Context) (string, error) {
 	// 利用/proc/self/exe获取可执行文件
 
 	file, err := os.Open("/proc/self/exe")
@@ -156,5 +156,3 @@ func saveFilePathToDB(filename string, path string) {
 
 	db.Create(&file)
 }
-
-// 检查可执行文件的MD5

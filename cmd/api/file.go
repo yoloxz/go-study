@@ -2,6 +2,7 @@ package api
 
 import (
 	"go-study/internal/service"
+	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -31,5 +32,10 @@ func DownloadFile(c *gin.Context) {
 }
 
 func GetMd5(c *gin.Context) {
-	service.GetMd5(c)
+	md5str, err := service.GetMd5(c)
+	if err != nil {
+		c.String(500, err.Error())
+		log.Fatal(err)
+	}
+	c.String(200, md5str)
 }

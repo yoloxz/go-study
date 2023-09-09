@@ -37,12 +37,13 @@ func RouterInit() {
 	fileRouter.GET("/downloadFile/:filename", api.DownloadFile)
 	fileRouter.GET("/getMd5", api.GetMd5)
 
+	// 解决方案路由组
+	solutionRouter := router.Group("solution")
+	solutionRouter.GET("/list", api.GetSolutionList)
+	solutionRouter.POST("/add", api.AddSolution)
+	solutionRouter.POST("/update", api.UpdateSolution)
+	solutionRouter.POST("/delete", api.DeleteSolution)
+
 	router.Run(":3333")
 
-}
-
-func getUserList(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": "user list",
-	})
 }

@@ -1,22 +1,18 @@
 package main
 
 import (
-	"go-study/cmd/app"
-	"go-study/config"
-	"go-study/global"
 	"go-study/internal/initialize"
+	"os"
 )
 
 func main() {
-	// 加载配置
-	global.CONFIG = *config.NewConfig("./config.yaml")
 
-	// 日志初始化
-	global.LOGGER = initialize.LoggerInit()
+	// 初始化cobra
+	rootCmd := initialize.NewRootCommnad()
+	if rootCmd.Execute() != nil {
+		os.Exit(1)
+	}
 
-	// sqlite初始化
-	global.DB = initialize.GromSqliteInit("./test.db")
-
-	// 启动路由
-	app.RouterInit()
+	//sqlite创建test表
+	// initialize.GromSqliteInit("./test.db").AutoMigrate(&model.StoreSolution{})
 }
